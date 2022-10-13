@@ -1,0 +1,28 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "This Project is based on CRUD Operations in MongoDB or mongoose. We will create a library mangement system inside this project and we will perform CRUD operations by using mongoose library and also with the help of postman we will check these CRUD operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app/index.js"
+  },
+  "keywords": [
+    "NodeJS",
+    "ExpressJS",
+    "MongoDB",
+    "Mongoose",
+    "javascript"
+  ],
+  "author": "Himanshu Chauhan",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20"
+  }
+}
