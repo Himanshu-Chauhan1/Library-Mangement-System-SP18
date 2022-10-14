@@ -1,14 +1,14 @@
-import { user,book,issue,activity } from '../models/index.js';
+import { user, book, issue, activity } from '../models/index.js';
 import { isValid, isValidRequestBody,isValidObjectId } from '../validator/validator.js'
 
 
 
-//========================================POST/books==========================================================
+//========================================POST/books==========================================================//
 
 const create = async function (req, res) {
     try {
   
-        const data = req.body;
+      const data = req.body;
   
       const { title, ISBN, stock, author, description, category} = req.body
   
@@ -17,7 +17,8 @@ const create = async function (req, res) {
       if (!isValidRequestBody(data)) {
         return res.status(422).send({ status: 1002, message: "Body is required" })
       }
-
+      let sessionID = req.session;
+      console.log(sessionID)
      let isRegisteredAdmin = await user.findOne({ isAdmin: true });
       
       if ((!isRegisteredAdmin)) {
@@ -71,7 +72,6 @@ const create = async function (req, res) {
   
     }
     catch (err) {
-        console.log(err.message)
         return res.status(422).send({status: 1001, msg: "Something went wrong Please check back again" })
     }
   };

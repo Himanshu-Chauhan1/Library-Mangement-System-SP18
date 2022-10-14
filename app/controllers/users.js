@@ -1,6 +1,6 @@
 import { user,book,issue,activity } from '../models/index.js';
 import {isValid, isValidRequestBody ,isValidObjectId} from '../validator/validator.js'
-import jwt from 'jsonwebtoken';
+import signAccessToken from "../helperJWT/jwtCreation.js"
 import bcrypt from 'bcrypt';
 
 
@@ -129,13 +129,10 @@ let login = async(req, res) => {
         let checkPassword = await bcrypt.compare(password, user1.password)
         if (!checkPassword) return res.status(422).send({ status: 1003, msg: " Invalid password credentials" })
 
+        const token = await signAccessToken(user1._id.toString());
 
-        const token = jwt.sign({
-            userId: user1._id,
-            iat: Math.floor(Date.now() / 1000),
-            exp: Math.floor(Date.now() / 1000) + 10 * 600 * 600
-        }, 'securedprivatekey')
-        res.header('Authorisation', token)
+        res.header("x-auth-token", token)
+        
         const userData = {token: token }
         return res.status(200).send({ status: 1010, message: "User successfully logged in", data: userData })
 
