@@ -21,6 +21,8 @@ const userSchema = new mongoose.Schema(
       pincode: { type: String, trim: true },
     },
     isAdmin: { type: Boolean, default: false },
+    isDeleted: { type: Boolean, default: false },
+    deletedAt: { type: Date }
   },
   { timestamps: true }
 );

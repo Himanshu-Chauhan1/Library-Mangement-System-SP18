@@ -5,7 +5,7 @@ const signAccessToken = (userId) => {
         const payload = {}
         const secret = process.env.SECRET_KEY
         const option = {
-            expiresIn : "1h",
+            expiresIn : "3h",
             issuer: "sparkeighteen.com",
             audience: userId
         };

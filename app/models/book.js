@@ -2,18 +2,18 @@ import mongoose from "mongoose";
 
 const booksSchema = new mongoose.Schema(
   {
-    title: { type: String },
-    ISBN: { type: String },
-    stock: { type: Number },
-    author: { type: String },
-    description: { type: String },
-    category: { type: String },
-    isAdmin : {
-      type : mongoose.Schema.Types.ObjectId,
-      ref : 'user', 
+    title: { type: String,trim:true },
+    ISBN: { type: String,trim:true },
+    stock: { type: Number, trim:true},
+    author: { type: String ,trim:true},
+    description: { type: String, trim:true },
+    category: { type: String, trim: true },
+    deletedAt: { type: Date },
+    isDeleted: {type:Boolean,default:false},
+    isRenewed: {type:Boolean,default:false},
+    isReturned: {type:Boolean,default:true},
   },
-    isDeleted: { default: false },
-  }, { timestamps: true }
+  { timestamps: true }
 );
 const book = mongoose.model("book", booksSchema);
 

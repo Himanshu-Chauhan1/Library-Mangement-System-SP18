@@ -1,8 +1,8 @@
 import {} from 'dotenv/config'
 
 import express from 'express'
-import {userRouter,bookRouter,issueRouter,activityRouter} from './app/routes/index.js'
-import connectDB from './app/db/connectdb.js'
+import {userRouter,bookRouter,issueRouter} from './app/routes/index.js'
+import connectDB from './app/db/connectDb.js'
 const app = express()
 
 
@@ -16,7 +16,7 @@ const DATABASE_URL = process.env.DATABASE_URL
 connectDB(DATABASE_URL)
 
 //Load Routes
-app.use("/", userRouter,bookRouter,issueRouter,activityRouter)
+app.use("/", userRouter,bookRouter,issueRouter)
 
 app.listen(port, () => {
     console.log(`Server is listening at http://localhost:${port}`);

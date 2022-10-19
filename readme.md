@@ -17,3 +17,5 @@ For this Project, we defined status codes and what they mean are mentioned below
 1009-It means a new resource has been created by user succesfully in the database
 
 1010-It means the resource which is user is checking like login or a request is correct to get processed
+
+1011-It means the data which is user trying to delete from the database again is already deleted from there
