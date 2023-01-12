@@ -98,7 +98,6 @@ const createBook = async function (req, res, next) {
 
     }
     catch (err) {
-        console.log(err.message);
         return res.status(422).send({ status: 1001, msg: "Something went wrong Please check back again" })
     }
 };

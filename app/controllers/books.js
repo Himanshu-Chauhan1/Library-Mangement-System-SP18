@@ -1,4 +1,4 @@
-import { user, book, issue} from '../models/index.js';
+import { book } from '../models/index.js';
 
 
 //========================================POST/books==========================================================//
@@ -135,8 +135,6 @@ const renewedBooks = async function (req, res) {
     return res.status(422).send({ status: 1001, msg: "Something went wrong Please check back again" })
   }
 };
-
-
 
 
 export { create, returnBooks, update, renew, get,deleteBooks ,returnedBooks, renewedBooks}
